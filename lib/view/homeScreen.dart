@@ -283,7 +283,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) =>  DetailsPage(),
+                                builder: (context) =>  DetailsPage(index: index,),
                               ),
                             ),
                             child: widgets.movieCard(

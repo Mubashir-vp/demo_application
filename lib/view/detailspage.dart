@@ -6,9 +6,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../widgets/widgets.dart';
 
 class DetailsPage extends StatelessWidget {
-  DetailsPage({Key? key}) : super(key: key);
+  DetailsPage({Key? key,required this.index}) : super(key: key);
   ConstantsColors colors = ConstantsColors();
   Widgets widgets = Widgets();
+  var index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +39,12 @@ class DetailsPage extends StatelessWidget {
                         10.r,
                       ),
                     ),
-                    child: Icon(
-                      FontAwesomeIcons.angleLeft,
-                      color: colors.primaryRed,
+                    child: GestureDetector(
+                      onTap: ()=>Navigator.pop(context),
+                      child: Icon(
+                        FontAwesomeIcons.angleLeft,
+                        color: colors.primaryRed,
+                      ),
                     )),
               ),
               actions: <Widget>[
@@ -92,7 +96,7 @@ class DetailsPage extends StatelessWidget {
                         height: 180.h,
                         width: 120.w,
                         child: Image.asset(
-                          widgets.images[0],
+                          widgets.images[index],
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -107,7 +111,7 @@ class DetailsPage extends StatelessWidget {
                           height: 190.h,
                         ),
                         Text(
-                          "Finding Nemo",
+                          widgets.movieDetails[index][0],
                           style: textStyle(
                             Colors.black,
                             20.sp,
